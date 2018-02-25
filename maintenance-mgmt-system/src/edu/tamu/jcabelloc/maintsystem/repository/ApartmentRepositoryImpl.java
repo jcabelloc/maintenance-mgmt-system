@@ -33,4 +33,10 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 		Session session = sessionFactory.getCurrentSession();
 		session.save(apartment);
 	}
+	
+	@Override
+	public char[] getBlocks() {
+		return new char[]{'A', 'B', 'C', 'D', 'E','F'};
+	}
+	
 }

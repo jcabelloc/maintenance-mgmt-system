@@ -34,4 +34,9 @@ public class ApartmentServiceImpl implements ApartmentService {
 		apartmentRepository.saveApartment(apartment);
 	}
 
+	@Override
+	public char[] getBlocks() {
+		return apartmentRepository.getBlocks();
+	}
+
 }

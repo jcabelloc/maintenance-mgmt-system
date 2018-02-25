@@ -11,5 +11,7 @@ public interface ApartmentService {
 	public Apartment getAparment(int apartmentId);
 	
 	public void saveApartment(Apartment apartment);
+
+	public char[] getBlocks();
 	
 }

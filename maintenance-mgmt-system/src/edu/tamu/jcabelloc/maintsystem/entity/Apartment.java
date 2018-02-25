@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
 
 @Entity
 @Table(name="Apartment")
@@ -22,6 +24,12 @@ public class Apartment {
 	@Column(name="Floor")
 	private int floor;
 	
+	@Transient
+	int[] roomChoices = {1,2,3,4};
+
+	@Transient
+	int[] floorChoices = {1,2,3};
+
 	public Apartment() {
 		
 	}
@@ -72,8 +80,13 @@ public class Apartment {
 				+ getNumberOfRooms() + ", getBlock()=" + getBlock() + ", getFloor()=" + getFloor() + ", getClass()="
 				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
-	
-	
-	
+
+	public int[] getRoomChoices() {
+		return roomChoices;
+	}
+
+	public int[] getFloorChoices() {
+		return floorChoices;
+	}
 
 }
