@@ -3,9 +3,7 @@
 
 <html>
 <head>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	
+	<link rel="import" href="${pageContext.request.contextPath}/resources/html/bootstrap.html">
 </head>
 <body>
 	<div class="container">
@@ -30,15 +28,24 @@
 				</thead>
 				<tbody>
 					<c:forEach items="${apartments}" var="apartment">
+						<c:url var="updateLink" value="/apartment/updateApartmentForm">
+							<c:param name="apartmentId" value="${apartment.apartmentId}"/>
+						</c:url>
+						<c:url var="deleteLink" value="/apartment/delete">
+							<c:param name="apartmentId" value="${apartment.apartmentId}"/>
+						</c:url>
 		    			<tr scope="row">
-							<td> ${apartment.apartmentId}</td>
+							<td> ${apartment.number}</td>
 							<td> ${apartment.numberOfRooms}</td>
 							<td> ${apartment.block}</td>
 							<td> ${apartment.floor}</td>
 							<td> 
-								<a href=""><i class="fas fa-edit"></i></a>
+								<a href='<c:out value="${updateLink}" />'><i class="fas fa-edit"></i></a>
 								<span>&nbsp&nbsp</span>
-								<a href=""><i class="fas fa-trash-alt"></i></a>
+								<a href='<c:out value="${deleteLink}"/>' 
+								   onclick="return confirm('Are you sure you want to delete this item?');"> 
+								   <i class="fas fa-trash-alt"></i>
+								</a>
 							</td>
 						</tr>
 					</c:forEach>
@@ -46,8 +53,5 @@
 			</table>
 		</div>
 	</div>
-	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js" ></script>
-	<script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

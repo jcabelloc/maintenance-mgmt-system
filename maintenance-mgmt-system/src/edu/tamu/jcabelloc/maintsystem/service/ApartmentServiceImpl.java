@@ -35,8 +35,16 @@ public class ApartmentServiceImpl implements ApartmentService {
 	}
 
 	@Override
+	@Transactional
 	public char[] getBlocks() {
 		return apartmentRepository.getBlocks();
 	}
+
+	@Override
+	@Transactional
+	public void delete(int apartmentId) {
+		apartmentRepository.delete(apartmentId);
+	}
+	
 
 }

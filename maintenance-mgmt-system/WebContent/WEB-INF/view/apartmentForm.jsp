@@ -2,19 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-	
+	<link rel="import" href="${pageContext.request.contextPath}/resources/html/bootstrap.html">
 </head>
 <body>
 
 	<div class="container">
 		<br><br>
-		<form:form action="saveCustomer" modelAttribute="apartment" method="POST">
+		<form:form action="saveApartment" modelAttribute="apartment" method="POST">
+		  <form:hidden path="apartmentId"/>
 		  <div class="form-group row">
-		    <label for="apartmentId" class="col-sm-2 col-form-label">Apartment Number</label>
+		    <label for="number" class="col-sm-2 col-form-label">Apartment Number</label>
 		    <div class="col-sm-10">
-		      <form:input path="apartmentId" type="number" class="form-control" id="apartmentId"/>
+		      <form:input path="number" type="number" class="form-control" id="number"/>
 		    </div>
 		  </div>
 		  <div class="form-group row">
@@ -52,11 +51,6 @@
 		</form:form>	
 	
 	</div>
-
-  
-  	<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js" ></script>
-	<script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.tamu.jcabelloc.maintsystem.entity.Apartment;
 import edu.tamu.jcabelloc.maintsystem.service.ApartmentService;
@@ -33,9 +34,21 @@ public class ApartmentController {
 		model.addAttribute("blocks", apartmentService.getBlocks());
 		return "apartmentForm";
 	}
-	@PostMapping("/saveCustomer")
+	@PostMapping("/saveApartment")
 	public String saveCustomer(@ModelAttribute("apartment") Apartment apartment) {
 		apartmentService.saveApartment(apartment);
+		return "redirect:/apartment/list";
+	}
+	@GetMapping("/updateApartmentForm")
+	public String updateApartmentForm(@RequestParam("apartmentId") int apartmentId, Model model) {
+		Apartment apartment = apartmentService.getAparment(apartmentId);
+		model.addAttribute("apartment", apartment);
+		model.addAttribute("blocks", apartmentService.getBlocks());
+		return "apartmentForm";
+	}
+	@GetMapping("/delete")
+	public String delete(@RequestParam("apartmentId") int apartmentId) {
+		apartmentService.delete(apartmentId);
 		return "redirect:/apartment/list";
 	}
 }

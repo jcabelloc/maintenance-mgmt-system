@@ -2,6 +2,8 @@ package edu.tamu.jcabelloc.maintsystem.repository;
 
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +33,16 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 	@Override
 	public void saveApartment(Apartment apartment) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(apartment);
+		session.saveOrUpdate(apartment);
+	}
+	
+	@Override
+	public void delete(int apartmentId) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("delete Apartment where apartmentId = :apartmentId");
+		query.setParameter("apartmentId", apartmentId);
+		query.executeUpdate();
+		
 	}
 	
 	@Override
