@@ -45,6 +45,12 @@ public class ApartmentServiceImpl implements ApartmentService {
 	public void delete(int apartmentId) {
 		apartmentRepository.delete(apartmentId);
 	}
+
+	@Override
+	@Transactional
+	public Apartment getAparmentByNumber(int number) {
+		return apartmentRepository.getApartmentByNumber(number);
+	}
 	
 
 }

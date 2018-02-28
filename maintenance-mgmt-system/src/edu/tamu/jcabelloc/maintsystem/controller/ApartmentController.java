@@ -27,7 +27,7 @@ public class ApartmentController {
 		model.addAttribute("apartments", apartments);
 		return "apartmentList";
 	}
-	@GetMapping("addApartmentForm")
+	@GetMapping("/addApartmentForm")
 	public String addApartmentForm(Model model) {
 		Apartment apartment = new Apartment();
 		model.addAttribute(apartment);

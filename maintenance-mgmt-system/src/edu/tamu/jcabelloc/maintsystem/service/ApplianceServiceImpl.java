@@ -34,4 +34,11 @@ public class ApplianceServiceImpl implements ApplianceService {
 		applianceRepository.saveAppliance(appliance);
 	}
 
+	@Override
+	@Transactional
+	public void delete(int applianceId) {
+		applianceRepository.delete(applianceId);
+	}
+	
+
 }

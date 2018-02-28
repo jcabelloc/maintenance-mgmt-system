@@ -15,4 +15,6 @@ public interface ApartmentRepository {
 	public char[] getBlocks();
 
 	public void delete(int apartmentId);
+
+	public Apartment getApartmentByNumber(int number);
 }

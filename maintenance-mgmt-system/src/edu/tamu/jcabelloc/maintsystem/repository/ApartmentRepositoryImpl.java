@@ -49,5 +49,13 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 	public char[] getBlocks() {
 		return new char[]{'A', 'B', 'C', 'D', 'E','F'};
 	}
+
+	@Override
+	public Apartment getApartmentByNumber(int number) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select a from Apartment a where a.number = :number", Apartment.class);
+		query.setParameter("number", number);
+		return (Apartment) query.getResultList().get(0);
+	}
 	
 }

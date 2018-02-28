@@ -42,7 +42,7 @@ public class Appliance {
 	@Column(name="Status")
 	char status;
 	
-	private Appliance() {
+	public Appliance() {
 		
 	}
 

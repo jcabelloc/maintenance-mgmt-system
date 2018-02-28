@@ -12,4 +12,6 @@ public interface ApplianceRepository {
 	
 	public void saveAppliance(Appliance appliance);
 
+	public void delete(int applianceId);
+
 }

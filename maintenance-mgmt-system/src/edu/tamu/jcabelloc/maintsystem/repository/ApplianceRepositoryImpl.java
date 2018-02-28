@@ -35,4 +35,12 @@ public class ApplianceRepositoryImpl implements ApplianceRepository {
 		session.saveOrUpdate(appliance);
 	}
 
+	@Override
+	public void delete(int applianceId) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("delete Appliance a where a.applianceId = :applianceId");
+		query.setParameter("applianceId", applianceId);
+		query.executeUpdate();
+	}
+
 }
