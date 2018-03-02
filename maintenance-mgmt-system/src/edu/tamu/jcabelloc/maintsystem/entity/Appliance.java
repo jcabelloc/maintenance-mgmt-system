@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="Appliance")
@@ -34,6 +37,7 @@ public class Appliance {
 	String brand;
 	
 	@Column(name="PurchaseDate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	LocalDate purchaseDate;
 	
 	@Column(name="Description")
