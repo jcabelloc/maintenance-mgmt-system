@@ -3,6 +3,23 @@
 <html>
 <head>
 	<link rel="import" href="${pageContext.request.contextPath}/resources/html/bootstrap.html">
+	<script type="text/javascript">
+		var popupWindow=null;
+
+		function focusPopup() {
+			if(popupWindow && !popupWindow.closed) { 
+				popupWindow.focus(); 
+			} 
+		}
+		function listApartment()
+		{ 
+			document.onmousedown = focusPopup; 
+			document.onkeyup = focusPopup;
+			document.onmousemove = focusPopup; 
+			document.onclick = focusPopup; 
+			popupWindow =window.open('${pageContext.request.contextPath}/apartment/search',"_blank","directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=800, height=480,top=300,left=300");
+		}
+	</script>
 </head>
 <body>
 
@@ -12,10 +29,14 @@
 		  <form:hidden path="applianceId"/>
  		  <div class="form-group row">
 		    <label for="apartmentNumber" class="col-sm-2 col-form-label">Apartment Number</label>
-		    <div class="col-sm-10">
-		      	<form:input path="apartment.number" type="number" class="form-control" id="apartmentNumber"/>
+		    <div class="col-sm-9">
+		      	<form:input readonly="true" path="apartment.number" type="text" class="form-control" id="apartmentNumber" />
+		    </div>
+		    <div class="col-sm-1">
+		    	<button type = "button" class="form-control" onclick='javascript:listApartment()'> <i class="fas fa-search" ></i> </button>
 		    </div>
 		  </div>
+
 		  <div class="form-group row">
 		    <label for="serialNumber" class="col-sm-2 col-form-label">Serial Number</label>
 		    <div class="col-sm-10">

@@ -1,5 +1,6 @@
 package edu.tamu.jcabelloc.maintsystem.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,19 @@ public class ApartmentController {
 		model.addAttribute("apartments", apartments);
 		return "apartmentList";
 	}
+	
+	@GetMapping("/search")
+	public String search(@RequestParam(value="apartmentNumber", required=false) Integer apartmentNumber, Model model) {
+		List<Apartment> apartments = new ArrayList<>();
+		if (apartmentNumber == null) {
+			apartments = apartmentService.getApartments();
+		} else {
+			apartments.add(apartmentService.getAparmentByNumber(apartmentNumber));
+		}
+		model.addAttribute("apartments", apartments);
+		return "apartmentSearch";
+	}
+	
 	@GetMapping("/addApartmentForm")
 	public String addApartmentForm(Model model) {
 		Apartment apartment = new Apartment();
@@ -39,6 +53,7 @@ public class ApartmentController {
 		apartmentService.saveApartment(apartment);
 		return "redirect:/apartment/list";
 	}
+	
 	@GetMapping("/updateApartmentForm")
 	public String updateApartmentForm(@RequestParam("apartmentId") int apartmentId, Model model) {
 		Apartment apartment = apartmentService.getAparment(apartmentId);
@@ -46,6 +61,7 @@ public class ApartmentController {
 		model.addAttribute("blocks", apartmentService.getBlocks());
 		return "apartmentForm";
 	}
+	
 	@GetMapping("/delete")
 	public String delete(@RequestParam("apartmentId") int apartmentId) {
 		apartmentService.delete(apartmentId);
