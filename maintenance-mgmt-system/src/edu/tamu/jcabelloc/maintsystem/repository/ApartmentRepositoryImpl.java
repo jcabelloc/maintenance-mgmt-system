@@ -55,9 +55,9 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("select a from Apartment a where a.number = :number", Apartment.class);
 		query.setParameter("number", number);
-		List<Apartment> apartments = query.getResultList();
-		if (apartments.size()>0) {
-			return apartments.get(0);			
+		Apartment apartment = (Apartment)query.getSingleResult();
+		if (apartment != null) {
+			return apartment;			
 		}
 		return null;
 		
