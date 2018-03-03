@@ -6,6 +6,7 @@
 	<link rel="import" href="${pageContext.request.contextPath}/resources/html/bootstrap.html">
 </head>
 <body>
+	<%@ include file = "header.jsp" %>
 	<div class="container">
 		<div>
 			<h3>Apartment List</h3>

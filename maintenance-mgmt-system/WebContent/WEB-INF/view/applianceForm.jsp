@@ -22,7 +22,7 @@
 	</script>
 </head>
 <body>
-
+	<%@ include file = "header.jsp" %>
 	<div class="container">
 		<br><br>
 		<form:form action="saveAppliance" modelAttribute="appliance" method="POST">

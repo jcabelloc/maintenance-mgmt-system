@@ -6,9 +6,9 @@
 	<link rel="import" href="${pageContext.request.contextPath}/resources/html/bootstrap.html">
 </head>
 <body>
+	<%@ include file = "header.jsp" %>
 	<div class="container">
 		<div>
-			<br><br>
 			<h3>Resident List</h3>
 			<hr>
 		</div>
@@ -33,7 +33,7 @@
 				<tbody>
 					<c:forEach items="${residents}" var="resident">
 						<c:url var="updateLink" value="/resident/updateResidentForm">
-							<c:param name="applianceId" value="${resident.residentId}"/>
+							<c:param name="residentId" value="${resident.residentId}"/>
 						</c:url>
 						<c:url var="deleteLink" value="/resident/delete">
 							<c:param name="residentId" value="${resident.residentId}"/>

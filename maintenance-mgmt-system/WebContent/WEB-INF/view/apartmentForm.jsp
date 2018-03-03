@@ -5,7 +5,7 @@
 	<link rel="import" href="${pageContext.request.contextPath}/resources/html/bootstrap.html">
 </head>
 <body>
-
+	<%@ include file = "header.jsp" %>
 	<div class="container">
 		<br><br>
 		<form:form action="saveApartment" modelAttribute="apartment" method="POST">
