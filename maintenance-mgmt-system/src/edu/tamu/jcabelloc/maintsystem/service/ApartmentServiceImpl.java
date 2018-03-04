@@ -42,8 +42,8 @@ public class ApartmentServiceImpl implements ApartmentService {
 
 	@Override
 	@Transactional
-	public void delete(int apartmentId) {
-		apartmentRepository.delete(apartmentId);
+	public void deleteApartment(int apartmentId) {
+		apartmentRepository.deleteApartment(apartmentId);
 	}
 
 	@Override

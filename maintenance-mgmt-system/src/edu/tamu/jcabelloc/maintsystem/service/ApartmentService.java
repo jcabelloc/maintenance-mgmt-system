@@ -14,7 +14,7 @@ public interface ApartmentService {
 
 	public char[] getBlocks();
 
-	public void delete(int apartmentId);
+	public void deleteApartment(int apartmentId);
 
 	public Apartment getAparmentByNumber(int number);
 	

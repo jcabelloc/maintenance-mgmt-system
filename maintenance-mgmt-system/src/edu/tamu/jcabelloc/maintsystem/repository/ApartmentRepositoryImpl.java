@@ -37,7 +37,7 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 	}
 	
 	@Override
-	public void delete(int apartmentId) {
+	public void deleteApartment(int apartmentId) {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("delete Apartment where apartmentId = :apartmentId");
 		query.setParameter("apartmentId", apartmentId);

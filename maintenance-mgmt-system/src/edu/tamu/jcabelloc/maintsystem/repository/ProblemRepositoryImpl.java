@@ -26,7 +26,7 @@ public class ProblemRepositoryImpl implements ProblemRepository {
 	@Override
 	public Problem getProblem(String problemCode) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("Select a from Problem a where a.ProblemCode=:problemCode");
+		Query query = session.createQuery("Select a from Problem a where a.problemCode=:problemCode");
 		query.setParameter("problemCode", problemCode);
 		return (Problem)query.getSingleResult();
 	}
@@ -40,7 +40,7 @@ public class ProblemRepositoryImpl implements ProblemRepository {
 	@Override
 	public void deleteProblem(String problemCode) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("delete Problem a where a.ProblemCode=:problemCode");
+		Query query = session.createQuery("delete Problem a where a.problemCode=:problemCode");
 		query.setParameter("problemCode", problemCode);
 		query.executeUpdate();
 	}

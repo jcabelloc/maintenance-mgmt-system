@@ -3,7 +3,6 @@ package edu.tamu.jcabelloc.maintsystem.repository;
 import java.util.List;
 
 import javax.persistence.Query;
-import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,8 +20,7 @@ public class ResidentRepositoryImpl implements ResidentRepository {
 	@Override
 	public List<Resident> getResidents() {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select a from Resident a", Resident.class); 
-		return query.getResultList();
+		return session.createQuery("select a from Resident a", Resident.class).getResultList();
 	}
 
 	@Override
@@ -34,7 +32,7 @@ public class ResidentRepositoryImpl implements ResidentRepository {
 	@Override
 	public void deleteResident(int residentId) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("delete Resident a where a=:residentId");
+		Query query = session.createQuery("delete Resident a where a.residentId=:residentId");
 		query.setParameter("residentId", residentId);
 		query.executeUpdate();
 	}

@@ -49,7 +49,7 @@ public class ApartmentController {
 		return "apartmentForm";
 	}
 	@PostMapping("/saveApartment")
-	public String saveCustomer(@ModelAttribute("apartment") Apartment apartment) {
+	public String saveApartment(@ModelAttribute("apartment") Apartment apartment) {
 		apartmentService.saveApartment(apartment);
 		return "redirect:/apartment/list";
 	}
@@ -64,7 +64,7 @@ public class ApartmentController {
 	
 	@GetMapping("/delete")
 	public String delete(@RequestParam("apartmentId") int apartmentId) {
-		apartmentService.delete(apartmentId);
+		apartmentService.deleteApartment(apartmentId);
 		return "redirect:/apartment/list";
 	}
 }

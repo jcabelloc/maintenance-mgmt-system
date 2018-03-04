@@ -26,7 +26,7 @@ public class IssueRepositoryImpl implements IssueRepository {
 	@Override
 	public Issue getIssue(String issueCode) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("Select a from Issue a where a.IssueCode=:issueCode");
+		Query query = session.createQuery("Select a from Issue a where a.issueCode=:issueCode");
 		query.setParameter("issueCode", issueCode);
 		return (Issue)query.getSingleResult();
 	}
@@ -34,13 +34,13 @@ public class IssueRepositoryImpl implements IssueRepository {
 	@Override
 	public void saveIssue(Issue issue) {
 		Session session = sessionFactory.getCurrentSession();
-		session.save(issue);
+		session.saveOrUpdate(issue);
 	}
 
 	@Override
 	public void deleteIssue(String issueCode) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("delete Issue a where a.IssueCode=:issueCode");
+		Query query = session.createQuery("delete Issue a where a.issueCode=:issueCode");
 		query.setParameter("issueCode", issueCode);
 		query.executeUpdate();
 	}
