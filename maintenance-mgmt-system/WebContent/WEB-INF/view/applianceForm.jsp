@@ -55,7 +55,7 @@
 		      	<form:input path="brand" type="text" class="form-control" id="brand"/>
 		    </div>
 		  </div>
-		   <div class="form-group row">
+		  <div class="form-group row">
 		    <label for="purchaseDate" class="col-sm-2 col-form-label">Purchase Date</label>
 		    <div class="col-sm-10">
 		      	<form:input path="purchaseDate" type="date" class="form-control" id="purchaseDate"/>

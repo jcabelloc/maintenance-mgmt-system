@@ -60,8 +60,6 @@ public class ApartmentRepositoryImpl implements ApartmentRepository {
 			return apartment;			
 		}
 		return null;
-		
-		
 	}
 	
 }

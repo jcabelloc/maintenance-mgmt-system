@@ -1,5 +1,6 @@
 package edu.tamu.jcabelloc.maintsystem.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import edu.tamu.jcabelloc.maintsystem.entity.Apartment;
 import edu.tamu.jcabelloc.maintsystem.entity.Resident;
 import edu.tamu.jcabelloc.maintsystem.service.ApartmentService;
 import edu.tamu.jcabelloc.maintsystem.service.ResidentService;
@@ -64,6 +66,17 @@ public class ResidentController {
 	public String delete(@RequestParam("residentId") int residentId) {
 		residentService.deleteResident(residentId);
 		return "redirect:/residentList";
+	}
+	@GetMapping("/search")
+	public String search(@RequestParam(value="residentName", required=false) String residentName, Model model) {
+		List<Resident> residents = new ArrayList<>();
+		if (residentName == null || residentName.length() == 0) {
+			residents = residentService.getResidents();
+		} else {
+			residents = residentService.getResidents(); // TODO
+		}
+		model.addAttribute("residents", residents);
+		return "residentSearch";
 	}
 	
 }

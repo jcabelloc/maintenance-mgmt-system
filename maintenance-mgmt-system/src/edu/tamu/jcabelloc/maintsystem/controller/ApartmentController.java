@@ -29,18 +29,6 @@ public class ApartmentController {
 		return "apartmentList";
 	}
 	
-	@GetMapping("/search")
-	public String search(@RequestParam(value="apartmentNumber", required=false) Integer apartmentNumber, Model model) {
-		List<Apartment> apartments = new ArrayList<>();
-		if (apartmentNumber == null) {
-			apartments = apartmentService.getApartments();
-		} else {
-			apartments.add(apartmentService.getAparmentByNumber(apartmentNumber));
-		}
-		model.addAttribute("apartments", apartments);
-		return "apartmentSearch";
-	}
-	
 	@GetMapping("/addApartmentForm")
 	public String addApartmentForm(Model model) {
 		Apartment apartment = new Apartment();
@@ -66,5 +54,17 @@ public class ApartmentController {
 	public String delete(@RequestParam("apartmentId") int apartmentId) {
 		apartmentService.deleteApartment(apartmentId);
 		return "redirect:/apartment/list";
+	}
+	
+	@GetMapping("/search")
+	public String search(@RequestParam(value="apartmentNumber", required=false) Integer apartmentNumber, Model model) {
+		List<Apartment> apartments = new ArrayList<>();
+		if (apartmentNumber == null) {
+			apartments = apartmentService.getApartments();
+		} else {
+			apartments.add(apartmentService.getAparmentByNumber(apartmentNumber));
+		}
+		model.addAttribute("apartments", apartments);
+		return "apartmentSearch";
 	}
 }
