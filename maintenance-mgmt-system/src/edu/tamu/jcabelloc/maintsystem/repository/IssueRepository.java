@@ -13,4 +13,6 @@ public interface IssueRepository {
 	public void saveIssue(Issue issue);
 	
 	public void deleteIssue(String issueCode);
+
+	public List<Issue> findIssuesByDescription(String issueDescription);
 }

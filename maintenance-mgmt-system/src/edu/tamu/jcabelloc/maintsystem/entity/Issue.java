@@ -19,7 +19,7 @@ public class Issue {
 	private String issueCode;
 	
 	@Column(name="Description")
-	private String Description;
+	private String description;
 	
 	@Column(name="State")
 	private char state;
@@ -32,10 +32,10 @@ public class Issue {
 		this.issueCode = issueCode;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	public char getState() {
 		return state;
@@ -45,7 +45,7 @@ public class Issue {
 	}
 	@Override
 	public String toString() {
-		return "Issue [issueCode=" + issueCode + ", Description=" + Description + ", state=" + state + "]";
+		return "Issue [issueCode=" + issueCode + ", Description=" + description + ", state=" + state + "]";
 	}
 	
 }

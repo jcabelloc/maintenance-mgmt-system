@@ -19,6 +19,14 @@
 			document.onclick = focusPopup; 
 			popupWindow =window.open('${pageContext.request.contextPath}/resident/search',"_blank","directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=800, height=480,top=300,left=300");
 		}
+		function listIssue()
+		{ 
+			document.onmousedown = focusPopup; 
+			document.onkeyup = focusPopup;
+			document.onmousemove = focusPopup; 
+			document.onclick = focusPopup; 
+			popupWindow =window.open('${pageContext.request.contextPath}/issue/search',"_blank","directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=800, height=480,top=300,left=300");
+		}
 	</script>
 </head>
 <body>
@@ -47,6 +55,31 @@
 		    	<button type = "button" class="form-control" onclick='javascript:listResident()'> <i class="fas fa-search" ></i> </button>
 		    </div>
 		    <form:hidden path="resident.residentId" id="residentId"/>
+		  </div>
+		  <div class="form-group row">
+		    <label for="priority" class="col-sm-2 col-form-label">Priority</label>
+		    <div class="col-sm-10">
+		    	<form:select path="priority" class="form-control" id="priority">
+             		<form:option value="0" label="--Please Select"/>
+             		<form:options items="${order.priorities}" />
+            	</form:select>		      
+		    </div>
+		  </div>
+		  <div class="form-group row">
+		    <label for="issueDescription" class="col-sm-2 col-form-label">Issue</label>
+		    <div class="col-sm-9">
+		      	<input readonly value="${order.issue.description}" type="text" class="form-control" id="issueDescription"/>
+		    </div>
+		    <div class="col-sm-1">
+		    	<button type = "button" class="form-control" onclick='javascript:listIssue()'> <i class="fas fa-search" ></i> </button>
+		    </div>
+		    <form:hidden path="issue.issueCode" id="issueCode"/>
+		  </div>
+		  <div class="form-group row">
+		    <label for="issueComment" class="col-sm-2 col-form-label">Comment</label>
+		    <div class="col-sm-10">
+		      	<form:textarea path="issueComment" rows="5" cols="30" class="form-control" id="issueComment"/>
+		    </div>
 		  </div>
 		  <div class="form-group row">
 		    <div class="col-sm-10">

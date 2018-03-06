@@ -1,5 +1,6 @@
 package edu.tamu.jcabelloc.maintsystem.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,17 @@ public class IssueController {
 	public String delete(@RequestParam("issueCode") String issueCode) {
 		issueService.deleteIssue(issueCode);
 		return "redirect:/issue/list";
+	}
+	
+	@GetMapping("/search")
+	public String search(@RequestParam(value="issueDescription", required=false) String issueDescription, Model model) {
+		List<Issue> issues = new ArrayList<>();
+		if (issueDescription == null || issueDescription.equals("")) {
+			issues = issueService.getIssues();
+		} else {
+			issues = issueService.findIssuesByDescription(issueDescription);
+		}
+		model.addAttribute("issues", issues);
+		return "issueSearch";
 	}
 }

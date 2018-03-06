@@ -24,7 +24,6 @@ public class Problem {
 	@Column(name="State")
 	private char state;
 
-	
 	public String getProblemCode() {
 		return problemCode;
 	}

@@ -50,7 +50,7 @@
 							<td> ${order.issue.description}</td>
 							<td> ${order.status}</td>
 							<td> 
-								<a href='<c:out value="${detailLink}" />'><i class="fas fa-edit"></i></a>
+								<a href='<c:out value="${detailLink}" />'><i class="fas fa-info-circle"></i></a>
 								<span>&nbsp&nbsp</span>
 								<a href='<c:out value="${updateLink}" />'><i class="fas fa-edit"></i></a>
 								<span>&nbsp&nbsp</span>

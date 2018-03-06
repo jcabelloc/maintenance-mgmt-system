@@ -36,7 +36,7 @@
 				<tbody>
 					<c:forEach items="${issues}" var="issue">
 		    			<tr scope="row">
-							<td> <a href="" id="${issue.issueCode}" onclick="window.opener.document.getElementById('issueCode').value = this.id; window.close();"  >${issue.issueCode}</a></td>
+							<td> <a href="" id="${issue.issueCode}" onclick="window.opener.document.getElementById('issueCode').value = this.id;  window.opener.document.getElementById('issueDescription').value = '${issue.description}'; window.close();"  >${issue.issueCode}</a></td>
 							<td> ${issue.description}</td>
 						</tr>
 					</c:forEach>

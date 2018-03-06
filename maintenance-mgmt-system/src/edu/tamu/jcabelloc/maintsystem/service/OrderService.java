@@ -2,6 +2,7 @@ package edu.tamu.jcabelloc.maintsystem.service;
 
 import java.util.List;
 
+import edu.tamu.jcabelloc.maintsystem.entity.Issue;
 import edu.tamu.jcabelloc.maintsystem.entity.Order;
 
 public interface OrderService {

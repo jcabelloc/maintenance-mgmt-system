@@ -38,7 +38,7 @@
 				<tbody>
 					<c:forEach items="${residents}" var="resident">
 		    			<tr scope="row">
-							<td> <a href="" id="${resident.residentId}" title="${resident.firstName} ${resident.lastName}" onclick="window.opener.document.getElementById('residentId').value = this.id; window.opener.document.getElementById('residentName').value = this.title;  window.close();"  >${resident.residentId}</a></td>
+							<td> <a href="" id="${resident.residentId}" onclick="window.opener.document.getElementById('residentId').value = this.id; window.opener.document.getElementById('residentName').value = '${resident.firstName} ${resident.lastName} ';  window.close();"  >${resident.residentId}</a></td>
 							<td> ${resident.firstName}</td>
 							<td> ${resident.lastName}</td>
 							<td> ${resident.email}</td>

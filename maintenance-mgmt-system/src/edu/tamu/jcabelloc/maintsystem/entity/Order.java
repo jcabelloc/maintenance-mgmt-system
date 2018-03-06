@@ -2,6 +2,8 @@ package edu.tamu.jcabelloc.maintsystem.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -70,7 +73,19 @@ public class Order {
 	
 	@Column(name="ResidentFeedback")
 	private String residentFeedback;
-
+	
+	@Transient
+	private static Map<String, String> priorities;
+	static {
+		priorities = new HashMap<String, String>();
+		priorities.put("H", "High"); 
+		priorities.put("M", "Medium"); 
+		priorities.put("L", "Low");
+	}
+	public Map<String, String> getPriorities() {
+		return priorities;
+	}
+	
 	public int getOrderId() {
 		return orderId;
 	}

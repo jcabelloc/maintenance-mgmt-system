@@ -30,6 +30,7 @@
 		          <a class="dropdown-item" href="${pageContext.request.contextPath}/resident/list">Residents</a>
 		          <a class="dropdown-item" href="${pageContext.request.contextPath}/issue/list">Issues</a>
 		          <a class="dropdown-item" href="${pageContext.request.contextPath}/problem/list">Problems</a>
+		          <a class="dropdown-item" href="${pageContext.request.contextPath}/order/list">Work Orders</a>
 		          <a class="dropdown-item" href="#">Future Functionality</a>
 		          <div class="dropdown-divider"></div>
 		          <a class="dropdown-item" href="#">Something else future	</a>

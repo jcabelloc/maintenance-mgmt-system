@@ -40,4 +40,10 @@ public class IssueServiceImpl implements IssueService {
 		issueRepository.deleteIssue(issueCode);
 	}
 
+	@Override
+	@Transactional
+	public List<Issue> findIssuesByDescription(String issueDescription) {
+		return issueRepository.findIssuesByDescription(issueDescription);
+	}
+
 }
