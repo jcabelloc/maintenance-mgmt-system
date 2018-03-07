@@ -11,21 +11,14 @@
 				popupWindow.focus(); 
 			} 
 		}
-		function listResident()
+		function showSearch(table)
 		{ 
 			document.onmousedown = focusPopup; 
 			document.onkeyup = focusPopup;
 			document.onmousemove = focusPopup; 
-			document.onclick = focusPopup; 
-			popupWindow =window.open('${pageContext.request.contextPath}/resident/search',"_blank","directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=800, height=480,top=300,left=300");
-		}
-		function listIssue()
-		{ 
-			document.onmousedown = focusPopup; 
-			document.onkeyup = focusPopup;
-			document.onmousemove = focusPopup; 
-			document.onclick = focusPopup; 
-			popupWindow =window.open('${pageContext.request.contextPath}/issue/search',"_blank","directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=800, height=480,top=300,left=300");
+			document.onclick = focusPopup;
+			var url = "${pageContext.request.contextPath}/" + table + "/search";
+			popupWindow =window.open(url,"_blank","directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=800, height=480,top=300,left=300");
 		}
 	</script>
 </head>
@@ -52,7 +45,7 @@
 		      	<input readonly value="${order.resident.firstName} ${order.resident.lastName}" type="text" class="form-control" id="residentName"/>
 		    </div>
 		    <div class="col-sm-1">
-		    	<button type = "button" class="form-control" onclick='javascript:listResident()'> <i class="fas fa-search" ></i> </button>
+		    	<button type = "button" class="form-control" onclick='javascript:showSearch("resident")'> <i class="fas fa-search" ></i> </button>
 		    </div>
 		    <form:hidden path="resident.residentId" id="residentId"/>
 		  </div>
@@ -71,7 +64,7 @@
 		      	<input readonly value="${order.issue.description}" type="text" class="form-control" id="issueDescription"/>
 		    </div>
 		    <div class="col-sm-1">
-		    	<button type = "button" class="form-control" onclick='javascript:listIssue()'> <i class="fas fa-search" ></i> </button>
+		    	<button type = "button" class="form-control" onclick='javascript:showSearch("issue")'> <i class="fas fa-search" ></i> </button>
 		    </div>
 		    <form:hidden path="issue.issueCode" id="issueCode"/>
 		  </div>
